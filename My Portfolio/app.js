@@ -1,4 +1,4 @@
-// Typing Animation
+
 const typingElement = document.querySelector(".typing");
 const words = ["Web Developer", "Programmer", "Student"];
 let wordIndex = 0;
@@ -32,21 +32,26 @@ if (typingElement) {
   typeEffect();
 }
 
-// EmailJS Initialization
 (function () {
-  emailjs.init("YOUR_PUBLIC_KEY"); // 🔁 Replace with your actual public key
+  emailjs.init("PiY0dvNB1Epn8TE_w"); 
 })();
 
-// Contact Form Submission
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
-    .then(function (response) {
-      alert("✅ Message sent successfully!");
-      document.getElementById("contact-form").reset();
-    }, function (error) {
-      alert("❌ Failed to send message. Please try again!");
-      console.error(error);
+//  Form Submission
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      emailjs.sendForm("service_hzi84wa", "template_44o77nf", this)
+        .then(function () {
+          alert(" Message sent successfully!");
+          form.reset();
+        }, function (error) {
+          alert("Failed to send message.");
+          console.error(error);
+        });
     });
+  }
 });
+
+
