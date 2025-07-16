@@ -1,4 +1,4 @@
-
+// Typing Animation
 const typingElement = document.querySelector(".typing");
 const words = ["Web Developer", "Programmer", "Student"];
 let wordIndex = 0;
@@ -32,26 +32,28 @@ if (typingElement) {
   typeEffect();
 }
 
+
+
 (function () {
-  emailjs.init("PiY0dvNB1Epn8TE_w"); 
+  emailjs.init("PiY0dvNB1Epn8TE_w");
 })();
 
-//  Form Submission
+// Form Submission
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contact-form");
+
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      emailjs.sendForm("service_hzi84wa", "template_44o77nf", this)
+
+      emailjs.sendForm("service_4pvwr8e", "template_44o77nf", form)
         .then(function () {
-          alert(" Message sent successfully!");
+          alert("Message sent successfully!");
           form.reset();
         }, function (error) {
-          alert("Failed to send message.");
-          console.error(error);
+          alert("Failed to send message. Please try again.");
+         console.error("EmailJS error:", error);
         });
     });
   }
 });
-
-
